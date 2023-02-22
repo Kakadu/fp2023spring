@@ -1,0 +1,10 @@
+(library
+ (inline_tests)
+ (name kaml)
+ (modules lib1 mismatches sum)
+ (libraries base)
+ (preprocess
+  (pps ppx_inline_test ppx_expect)))
+
+(cram
+ (deps sum.py find_mismatches.py))
