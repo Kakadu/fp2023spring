@@ -2,9 +2,16 @@
  (inline_tests)
  (name kaml)
  (modules lib1 mismatches sum)
- (libraries base)
+ (flags
+  (:standard -warn-error -32-33-34-37))
+ (libraries base ppx_show.runtime)
  (preprocess
-  (pps ppx_inline_test ppx_expect)))
+  (pps
+   ppx_inline_test
+   ppx_expect
+   ppx_show
+   ;
+   )))
 
 (cram
  (deps sum.py find_mismatches.py))
